@@ -61,3 +61,31 @@ d_col = [0, 1, 0, -1]
 
 # 대각선
 dxy = [(-1, -1), (1, -1), (1, 1), (-1, 1)]
+
+# 벽을 세워야 한다.
+# 주어진 2차원 리스트의 범위를 벗어나지 않도록 제한을 두는 행위
+
+# 1. 벽의 제한을 두는데, 벽을 넘어가는 경우, 아무것도 하지 않는다.
+# 2. 벽을 넘어가지 않는 경우에만 기능을 수행한다.
+
+x = 0
+y = 1
+for d in range(4)
+    # 다음에 이용할 좌표 담기
+    nx = x + dx[d]
+    ny = y + dy[d]
+
+    # 1. map 을 벗어나는 경우 아무것도 하지 않기
+    if nx < 0 or nx >= N or ny < 0 or ny >= N:
+        continue
+    # 특정 로직 수행
+
+    # 2. map을 넘어가지 않는 경우에만 기능을 수행하기
+    if 0 <= nx < N and 0 <= ny < N:
+        # 특정 로직 수행
+
+def isSafeArea(nx, ny, N):
+    if 0 <= nx < N and 0 <= ny < N:
+        return True
+    else:
+        return False

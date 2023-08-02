@@ -31,29 +31,3 @@ for t in range(1, T + 1):
             max_M = max_sum
 
     print(f'#{t} {max_M - min_M}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# while True:
-#     sentence = str(input())
-#     if sentence == '.':
-#         break
-#
-#     balance = True
-#     for i in range(len(sentence)):
-#         for j in range(i, len(sentence)):
-#
