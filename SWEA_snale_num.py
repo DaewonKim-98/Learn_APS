@@ -80,3 +80,38 @@ for case in range(1, T + 1):
             print(arr[r][c], end=' ')
         print()
 
+
+dx = [0, 1, 0, -1]
+dy = [1, 0, -1, 0]
+
+T = int(input())
+
+for tc in range(1, T + 1):
+    N = int(input())
+
+    arr = [[0] * N for _ in range(N)]
+
+    count = 1 # 달팽이가 이동하면서 값을 증가시키고 기록할 변수
+    x, y = 0, 0 # 시작 좌표 설정 x: 0, y: 0
+    dir = 0 # 이동할 방향
+    arr[x][y] = count # 시작 위치에 1을 기록
+
+    while count < N ** 2: # N*N 만큼 판이 만들어지니까
+        nx = x + dx[dir]
+        ny = y + dy[dir]
+        # 다음 조사 위치가 0보다 크거나 같고, N 보다 작다면 / 그리고 다음 위치가 0이면
+        if 0 <= nx < N and 0 <= ny < N and arr[nx][ny] == 0:
+            count += 1
+            arr[nx][ny] = count # 현재 조사하는 곳에 count 할당
+            x, y = nx, ny # 내 위치 갱신
+        else: # 더 이상 해당 방향으로 이동해 기록할 수 없을 때:
+            dir += 1
+            # 방향은 4종류 뿐이다.
+            if dir >= 4:
+                dir = 0 # 다시 우측으로 이동하도록 초기화
+
+    print(f'# {tc}')
+    for r in arr:
+        for c in arr:
+            print(arr[r][c], end=' ')
+        print()
