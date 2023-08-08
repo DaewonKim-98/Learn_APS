@@ -14,14 +14,9 @@ for case in range(1, T + 1):
         # 파이프의 개수에 '(' 면 레이저 도달 전까지 계속 추가
         elif arr[i] == '(' and arr[i + 1] != ')':
             cnt += 1
-        if i > 0:
-            # 파이프가 끝나면 cnt_cut 잘린 쇠 파이프에 1 추가, 파이프 개수 1 감소
-            if arr[i - 1] != '(' and arr[i] == ')':
-                cnt_cut += 1
-                cnt -= 1
-
-    # 마지막은 안바줬으므로 마지막에 1 추가
-    if arr[-2] != '(' and arr[-1] == ')':
-        cnt_cut += 1
+        # 파이프가 끝나면 cnt_cut 잘린 쇠 파이프에 1 추가, 파이프 개수 1 감소
+        elif arr[i] != '(' and arr[i + 1] == ')':
+            cnt_cut += 1
+            cnt -= 1
 
     print(f'#{case} {cnt_cut}')
