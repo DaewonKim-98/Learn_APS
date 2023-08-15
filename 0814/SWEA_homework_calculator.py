@@ -21,9 +21,9 @@ for case in range(1, T + 1):
                 while len(stack) > 0 and isp[stack[-1]] >= icp[x]:
                     susik += stack.pop()
                 stack.append(x)
-
-    print(susik)
-    stack = []
+    susik += stack.pop()
+    
+    
     for x in susik:
         if x not in '+-/*':  # 피연산자면
             stack.append(int(x))
@@ -38,5 +38,4 @@ for case in range(1, T + 1):
                 stack.append(op1 * op2)
             elif x == '/':
                 stack.append(op1 / op2)
-        print(stack)
-    print(stack[-1])
+    print(f'#{case} {stack[0]}')
