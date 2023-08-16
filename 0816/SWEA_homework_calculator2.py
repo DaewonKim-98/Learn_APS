@@ -21,7 +21,10 @@ for case in range(1, T + 1):
                 while len(stack) > 0 and isp[stack[-1]] >= icp[x]:
                     susik += stack.pop()
                 stack.append(x)
-    susik += stack.pop()
+
+    # 스택의 남은 부분들을 다 수식으로
+    for _ in range(len(stack)):
+        susik += stack.pop()
 
     for x in susik:
         if x not in '+-/*':  # 피연산자면
